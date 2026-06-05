@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KimiCode Token Tracker</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <!-- 每日心情 -->
+    <section class="mood-section" id="mood-section">
+      <div class="mood-emoji" id="mood-emoji">🌱</div>
+      <div class="mood-text" id="mood-text">种子已经埋下，等待发芽 🌱</div>
+      <div class="mood-conversion" id="mood-conversion"></div>
+    </section>
+
+    <!-- 今日概览 -->
+    <section class="overview">
+      <div class="overview-label">今日 Token 用量</div>
+      <div class="overview-total" id="today-total">0</div>
+      <div class="overview-bar">
+        <div class="bar-track">
+          <div class="bar-fill input" id="bar-input"></div>
+          <div class="bar-fill output" id="bar-output"></div>
+        </div>
+      </div>
+      <div class="overview-legend">
+        <span class="legend-item"><span class="dot input-dot"></span>Input <b id="today-input">0</b></span>
+        <span class="legend-item"><span class="dot output-dot"></span>Output <b id="today-output">0</b></span>
+      </div>
+    </section>
+
+    <!-- 当前会话 -->
+    <section class="card">
+      <div class="card-header">
+        <span class="card-title">当前会话</span>
+        <span class="badge" id="active-badge">活跃</span>
+      </div>
+      <div class="card-body" id="active-session">
+        <div class="empty">暂无活跃会话</div>
+      </div>
+    </section>
+
+    <!-- 7 日趋势 -->
+    <section class="card">
+      <div class="card-header">
+        <span class="card-title">7 日趋势</span>
+      </div>
+      <div class="card-body">
+        <div class="trend-chart" id="trend-chart">
+          <!-- 动态生成柱状图 -->
+        </div>
+      </div>
+    </section>
+
+    <!-- 模型分布 -->
+    <section class="card">
+      <div class="card-header">
+        <span class="card-title">模型分布</span>
+      </div>
+      <div class="card-body">
+        <div class="model-list" id="model-list">
+          <!-- 动态生成 -->
+        </div>
+      </div>
+    </section>
+
+    <!-- 今日活跃时段 -->
+    <section class="card">
+      <div class="card-header">
+        <span class="card-title">今日活跃时段</span>
+        <span class="badge" id="peak-hour-badge">--:--</span>
+      </div>
+      <div class="card-body">
+        <div class="heatmap" id="heatmap">
+          <!-- 动态生成 24 小时热力图 -->
+        </div>
+        <div class="heatmap-legend">
+          <span>低</span>
+          <div class="heatmap-gradient"></div>
+          <span>高</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 今日会话 -->
+    <section class="card">
+      <div class="card-header">
+        <span class="card-title">今日会话</span>
+      </div>
+      <div class="card-body">
+        <div class="session-list" id="session-list">
+          <!-- 动态生成 -->
+        </div>
+      </div>
+    </section>
+
+    <!-- 分享卡片 -->
+    <section class="share-section">
+      <button class="share-btn" id="share-btn">
+        📸 生成今日分享卡片
+      </button>
+      <div class="share-hint">保存到桌面或剪贴板</div>
+    </section>
+  </div>
+
+  <!-- 隐藏的 Canvas，用于生成分享卡片 -->
+  <canvas id="share-canvas" width="400" height="720" style="display:none;"></canvas>
+
+  <script src="renderer.js"></script>
+</body>
+</html>

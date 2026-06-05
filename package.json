@@ -1,0 +1,45 @@
+{
+  "name": "kimicodetokentracker",
+  "version": "1.0.0",
+  "description": "macOS 状态栏 Kimi Code Token 用量统计工具",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder --mac"
+  },
+  "keywords": [
+    "kimi-code",
+    "token",
+    "tracker",
+    "menubar",
+    "macos"
+  ],
+  "author": "Smartweb <smartweb> (https://github.com/smartweb)",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^31.0.0",
+    "electron-builder": "^24.13.3"
+  },
+  "dependencies": {
+    "chokidar": "^3.6.0"
+  },
+  "build": {
+    "appId": "com.kimicodetokentracker.app",
+    "productName": "KimiCodeTokenTracker",
+    "directories": {
+      "output": "dist"
+    },
+    "mac": {
+      "category": "public.app-category.utilities",
+      "target": [
+        {
+          "target": "dmg",
+          "arch": [
+            "arm64",
+            "x64"
+          ]
+        }
+      ]
+    }
+  }
+}
